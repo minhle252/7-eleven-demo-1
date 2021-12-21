@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thêm mới sản phẩm</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="plugins/css/all.min.css" />
+    <script src="js/products.js"></script>
+    <script src="js/demo.js"></script>
+    <style>
+      * {
+        font-family: "Times New Roman", Times, serif;
+      }
+      input {
+        height: 2.5rem;
+      }
+    </style>
+  </head>
+  <body class="container">
+    <div
+      class="
+        row
+        justify-content-center
+        align-content-md-center align-content-start
+      "
+      style="height: 100vh"
+    >
+      <div class="card w-75 pt-5">
+        <div class="card-body">
+          <label for="productImage">Hình ảnh sản phẩm</label>
+          <div class="col-12 w-100 mb-4 mt-1">
+            <input class="form-control w-100" type="file" id="productImage" />
+          </div>
+          <label for="productName">Tên sản phẩm</label>
+          <div class="col-12 w-100 mb-4 mt-1">
+            <input class="form-control w-100" type="text" id="productName" />
+          </div>
+          <label for="productOrigin">Giá gốc</label>
+          <div class="col-12 w-100 mb-4 mt-1">
+            <input class="form-control w-100" type="text" id="productOrigin" />
+          </div>
+          <label for="productSale">Giảm giá(%) - giá trị từ 0-1</label>
+          <div class="col-12 w-100 mb-4 mt-1">
+            <input class="form-control w-100" type="text" id="productSale" />
+          </div>
+          <label for="productArea">Khu vực</label>
+          <div class="col-12 w-100 mb-4 mt-1">
+            <input class="form-control w-100" type="text" id="productArea" />
+          </div>
+          <button
+            class="btn w-100 my-3 text-center"
+            style="background-color: #f7452e"
+            onClick="onClickCreateProduct()"
+          >
+            Tạo sản phẩm
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      // lấy danh sách sp đã có trong local storage
+      var listProducts = localStorage.getItem("listProducts");
+      if (listProducts == null) {
+        listProducts = new Array();
+      }
+      console.log(listProducts);
+      //
+      // 1. Lắng nghe sự kiện onclick, khi người dùng click vào button tạo sản phẩm
+      // 2. Lấy toàn bộ dữ liệu người dùng nhập vào
+      // 3  Tạo ra đối tượng từ các dữ liệu người dùng nhập vào
+      //
+      function onClickCreateProduct() {
+        console.log("gọi hàm onClickCreateProduct");
+        //truy cập các node để lấy dữ liệu
+
+        //hình ảnh
+        var nodeImages = document.getElementById("productImage");
+        var arrImageSplit = nodeImages.value.split("\\");
+        var images = arrImageSplit[arrImageSplit.length - 1];
+        nodeImages.value = "";
+        // tên
+        var nodeName = document.getElementById("productName");
+        var name = nodeName.value;
+        nodeName.value = "";
+        // giá gốc
+        var nodeOrigin = document.getElementById("productOrigin");
+        var origin = nodeOrigin.value;
+        nodeOrigin.value = "";
+        // giảm Giá
+        var nodeSale = document.getElementById("productSale");
+        var sale = nodeSale.value;
+        nodeSale = nodeSale.value = "";
+        //khu vực
+        var nodeArea = document.getElementById("productArea");
+        var area = nodeArea.value;
+        nodeArea = nodeArea.value = "";
+        // Tạo ra đối tượng từ các dữ liệu người dùng nhập vào
+        var products = createProducts(images, name, origin, sale, area);
+
+        // đưa sản phẩm vào danh sách
+        listProducts.push(products);
+        console.log("Danh sách sản phẩm là: ");
+        console.log(listProducts);
+        // //lưu trữ danh sách sản phẩm xuống localStorage
+        var jsonListProducts = JSON.stringify(listProducts);
+        localStorage.setItem("listProducts", jsonListProducts);
+      }
+    </script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

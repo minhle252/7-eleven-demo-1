@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/products.js"></script>
+  </head>
+  <body>
+    <script>
+      //   // tạo sp
+      //   var iphone5 = createProducts("sssssss", "Iphone5", 50000000, 0.15, "HN");
+      //   console.log(iphone5);
+      //   //chuyển đối tượng thành json
+      //   var json = iphone5.toJson();
+      //   console.log(json);
+      //   localStorage.setItem("product", json);
+
+      //   var jsonFromLocalstorage = localStorage.getItem("product");
+      //   console.log(jsonFromLocalstorage);
+      //   var product = JSON.parse(jsonFromLocalstorage);
+      //   console.log(product);
+      //   console.log("Tên của sp là: " + product.name);
+
+      var json = localStorage.getItem("product");
+      //   var object = JSON.parse(json);
+      //   console.log(object);
+      //   // chuyển object raw thành object có các function
+      //   var fullObject = createProducts(
+      //     object.images,
+      //     object.name,
+      //     object.origin,
+      //     object.sale,
+      //     object.area
+      //   );
+      //   console.log(fullObject);
+      //   console.log(fullObject.calc());
+      var fullObject = createProducts().fromJson(json);
+      console.log(fullObject);
+    </script>
+  </body>
+</html>

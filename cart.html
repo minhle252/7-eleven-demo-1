@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giỏ hàng</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="plugins/css/all.min.css" />
+    <link rel="stylesheet" href="plugins/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="navbar">
+          <ul class="nav">
+            <li class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle"
+                id="shirtDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Quần áo
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="shirtDropdown">
+                <li>
+                  <a href="#" class="dropdown-item">Quần áo nam</a>
+                </li>
+                <li><a href="#" class="dropdown-item">Quần áo nữ</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link active">Phụ kiện</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle"
+                id="electronicDeviceDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Đồ điện tử
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="electronicDeviceDropdown"
+              >
+                <li><a href="#" class="dropdown-item">Điện thoại</a></li>
+                <li><a href="#" class="dropdown-item">Đồ gia dụng</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav">
+            <li class="nav-item">
+              <a href="#" class="item-link"
+                ><i class="fas fa-shopping-cart"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="container mt-90px">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 h5">Danh sách sản phẩm</div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-2 h6">Sản phẩm</div>
+            <div class="col-sm-2 h6">Đơn giá</div>
+            <div class="col-sm-2 h6">Số lượng</div>
+            <div class="col-sm-2 h6">Tổng tiền</div>
+            <div class="col-sm-1 h6"></div>
+          </div>
+          <div class="row pt-4">
+            <div class="col-sm-2 line-height-60px">
+              <img
+                class="images_card_item"
+                src="./images/iphone/1923694765.jpeg"
+                alt=""
+              />
+            </div>
+            <div class="col-sm-2 line-height-60px">Iphone 7</div>
+            <div class="col-sm-2 line-height-60px">15000000 đ</div>
+            <div class="col-sm-2 line-height-60px">
+              <input class="w-100" style="line-height: 20px" type="number" />
+            </div>
+            <div class="col-sm-2 line-height-60px">15000000 đ</div>
+            <div class="col-sm-1 line-height-60px">
+              <a href="#" class="text-black"><i class="fas fa-trash"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="container mt-90px">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 h5 mb-3">Mua hàng</div>
+            <label for="txtName">Họ Tên</label>
+            <div class="col-12 mb-3 mt-1">
+              <input type="text" id="txtName" class="w-100 form-control" />
+            </div>
+            <label for="txtPhoneNumber">Số điện thoại</label>
+            <div class="col-12 mb-3 mt-1">
+              <input
+                type="text"
+                id="txtPhoneNumber"
+                class="w-100 form-control"
+              />
+            </div>
+            <label for="txtEmail">Email</label>
+            <div class="col-12 mb-3 mt-1">
+              <input type="email" id="txtEmail" class="w-100 form-control" />
+            </div>
+            <label for="txtDateOfBirth">Ngày sinh</label>
+            <div class="col-12 mb-3 mt-1">
+              <input
+                type="date"
+                id="txtDateOfBirth"
+                class="w-100 form-control"
+              />
+            </div>
+            <label for="txtTimeOut">Thời gian nhận hàng trong ngày 8-18h</label>
+            <div class="col-12 mb-3 mt-1">
+              <input type="number" id="txtTimeOut" class="w-100 form-control" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

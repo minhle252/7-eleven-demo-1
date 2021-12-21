@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Của hàng bán Điện thoại</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="plugins/css/all.min.css" />
+    <link rel="stylesheet" href="plugins/css/style.css" />
+    <script src="js/products.js"></script>
+    <script src="js/demo.js"></script>
+    <script src="js/cart.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="navbar">
+          <ul class="nav">
+            <li class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle"
+                id="shirtDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Quần áo
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="shirtDropdown">
+                <li>
+                  <a href="#" class="dropdown-item">Quần áo nam</a>
+                </li>
+                <li><a href="#" class="dropdown-item">Quần áo nữ</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link active">Phụ kiện</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle"
+                id="electronicDeviceDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Đồ điện tử
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="electronicDeviceDropdown"
+              >
+                <li><a href="#" class="dropdown-item">Điện thoại</a></li>
+                <li><a href="#" class="dropdown-item">Đồ gia dụng</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav">
+            <li class="nav-item">
+              <a href="#" class="item-link"
+                ><i class="fas fa-shopping-cart"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="mt-55px container py-3" id="slider">
+      <img class="img-thumbnail w-100" src="images/panner1.jpeg" alt="" />
+    </section>
+    <section class="container">
+      <!-- danh sách sản phẩm -->
+      <div class="container-fluid" id="products"></div>
+    </section>
+    <footer>
+      <div class="container">
+        <span class="text-white w-100"> Copyright &copy;Minhle </span>
+      </div>
+    </footer>
+    <script>
+      // lấy danh sách sp dưới localstorage
+      var jsonListProducts = localStorage.getItem("listProducts");
+      var listProducts = createProducts().fromJsonList(jsonListProducts);
+      console.log(listProducts);
+      // chuyển danh sách đối tượng sản phẩm sang giai đoạn HTML
+      var HTML = changeListProductToHTML(listProducts);
+      // gắn đoạn html đó vào section products
+      var nodeProducts = document.getElementById("products");
+      nodeProducts.innerHTML = HTML;
+
+      function onClickAddToCart(idProduct) {
+        alert(idProduct);
+        // lấy danh sach giỏ hàng có tồn tại trong localstorage lên -> lấy toàn bộ giỏ hàng
+        var listCartItems = getListCartItem();
+        // thêm item vào danh sách
+        var cartIsAvailable = false; // mặc định lúc đầu là không tồn tại
+        for (var i = 0; i < listCartItems.length; i++) {
+          var currentCartItem = listCartItems[i];
+          //nếu tồn tại thì tăng số lượng
+          if (currentCartItem.idProduct == idProduct) {
+            listCartItems[i].quantity++;
+            cartIsAvailable = true;
+          }
+        }
+        // nếu không tồn tại thì tạo giỏ hàng mới
+        if (cartIsAvailable == false) {
+          var cartItem = createCartItem(idProduct, 1);
+          listCartItems.push(cartItem);
+        }
+        // lưu trữ lại vào localstorage
+        saveListCartItemInLocalStorage(listCartItems);
+      }
+    </script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

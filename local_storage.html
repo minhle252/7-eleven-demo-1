@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="key" placeholder="nhập key của localStorage" />
+    <input type="text" id="value" placeholder="nhập giá trị của localStorage" />
+    <button onclick="onClickCreate()">Thêm giá trị</button>
+    <button onclick="onClickDelete()">Xóa giá trị</button>
+    <script>
+      // lưu trữ xuống local storage
+      localStorage.setItem("userName", "minhle");
+      localStorage.setItem("password", "123456");
+      //truy xuất dữ liệu trong localStorage
+      var userName = localStorage.getItem("userName");
+      var password = localStorage.getItem("password");
+      console.log(userName);
+      console.log(password);
+      // function thêm dữ liệu trong localStorage
+      function onClickCreate() {
+        var nodeInputKey = document.getElementById("key");
+        var key = nodeInputKey.value;
+        var nodeInputValue = document.getElementById("value");
+        var value = nodeInputValue.value;
+        // thực hiện lưu dữ liệu xuống localStorage
+        localStorage.setItem(key, value);
+        alert("Thêm dữ liệu thành công");
+      }
+      // function xóa dữ liệu trong localStorage
+      function onClickDelete() {
+        var nodeInputKey = document.getElementById("key");
+        var key = nodeInputKey.value;
+        //xóa
+        localStorage.removeItem(key);
+        alert("xóa thành công");
+      }
+    </script>
+  </body>
+</html>

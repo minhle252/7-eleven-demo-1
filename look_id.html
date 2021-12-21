@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Look id</title>
+    <script src="js/products.js"></script>
+    <script src="js/demo.js"></script>
+  </head>
+  <body>
+    <!-- cho người dùng nhập vào id của sp: khi bấm nút tìm kiếm sẽ hiển thị ra đối tượng này -->
+    <input type="text" placeholder="Nhập ID sản phẩm" id="idProduct" />
+    <button onclick="onClickLookProduct()" class="btn">Tìm kiếm</button>
+    <div id="ketquatimkiem"></div>
+    <script>
+      function onClickLookProduct() {
+        // truy xuất nodeIdProduct để lấy ra idProduct
+        var nodeIdProduct = document.getElementById("idProduct");
+        var idProduct = nodeIdProduct.value;
+        console.log(idProduct);
+        // truy xuất đối tượng theo id
+        var product = accessObjectById(idProduct);
+        console.log(product);
+        // chuyển đối tượng sang html và hiển thị HTML ra nodeKQTK
+        var HTML = changeProductToHTML(product);
+        var nodeLookingResult = document.getElementById("ketquatimkiem");
+        nodeLookingResult.innerHTML = HTML;
+      }
+    </script>
+  </body>
+</html>
